@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useContext } from 'react';
+import authContext from '../contexts/authContext';
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import { TextField, Button, FormGroup, Box } from "@material-ui/core";
 import * as Yup from "yup";
-import { signIn} from "../pages/api/auth"
+import Dashboard from './Dashboard'; 
+
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string().required("Required").min(2).max(10),
 });
 
-async function handleSignIn(){
-  const response = await signIn();
-  console.log(response);
-}
 
-export const Login = () => {
-  return (
+function Login () {
+  const { signIn, signed, user } = useContext(authContext); 
+    console.log(signed);
+    console.log(user);
+  return signed? <Dashboard /> :(
     <div>
       <Formik
         initialValues={{
@@ -26,7 +27,7 @@ export const Login = () => {
         onSubmit={(values) => {
           // same shape as initial values
           //console.log(values);
-          handleSignIn();
+          signIn();
           
         }}
       >
