@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 import authContext from '../contexts/authContext';
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import { TextField, Button, FormGroup, Box } from "@material-ui/core";
-import * as Yup from "yup";
-import Dashboard from './Dashboard'; 
+import * as Yup from "yup"; 
 
 
 const SignupSchema = Yup.object().shape({
@@ -13,10 +12,8 @@ const SignupSchema = Yup.object().shape({
 
 
 function Login () {
-  const { signIn, signed, user } = useContext(authContext); 
-    console.log(signed);
-    console.log(user);
-  return signed? <Dashboard /> :(
+  const { signIn } = useContext(authContext);   
+  return (
     <div>
       <Formik
         initialValues={{

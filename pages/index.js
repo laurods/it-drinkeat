@@ -21,7 +21,7 @@ function Index() {
         <Container>
           <Grid container spacing={3}>
             <Grid item xs={12}></Grid>
-            <Grid item xs={4}>         
+            <Grid item xs={4}>       
                   
             </Grid>
             <Grid item xs={8}>

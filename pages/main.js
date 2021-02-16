@@ -1,11 +1,11 @@
 import React from 'react';
 import AuthProvider from '../contexts/authProvider';
-import Login from '../components/Login';
+import Access from '../components/Access';
 function authentication (){   
   return (
     <div>
         <AuthProvider>            
-            <Login />        
+            <Access />        
         </AuthProvider> 
     </div>
   );
