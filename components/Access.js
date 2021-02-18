@@ -8,11 +8,15 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 function Access () {
   const { signed, loading } = useContext(authContext);
   console.log(loading);
+  /*
   if(loading){
     return (
     <CircularProgress />
     );
-  }    
+  } 
+  */
+    if(loading) return <CircularProgress />
+    
     return signed? <Dashboard /> : <Login />
 };
 
