@@ -7,7 +7,7 @@ import ApiAxios from "../pages/api/axios"
 
 function Provider({ children }) {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(null);
 
     useEffect(() => {
       function loadStorageData() {
