@@ -23,13 +23,26 @@ function Provider({ children }) {
       loadStorageData();
     }, []);
 
-    async function signIn(){
-        const response = await auth.signIn();
-        const { token, user } = response;
+    async function signIn(values){
+        //const response = await auth.signIn(values);       
+        const response = await fetch('https://it-gestor.vercel.app/api/user/authDrinkeat', {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                //email: emailRef.current.value,
+                //password: passRef.current.value,
+                email: 'pedro@gmail.com',
+                password: '321',
+            })
+        });
+
+        const { _id, email } = response;
         setUser(response.user);
-        ApiAxios.defaults.headers['Authorization'] = `Bearer ${response.token}`;
-        localStorage.setItem("@DrinkEat:user", JSON.stringify(response.user));
-        localStorage.setItem("@DrinkEat:token", JSON.stringify(response.token));
+        ApiAxios.defaults.headers['Authorization'] = `Bearer ${response._id}`;
+        localStorage.setItem("@DrinkEat:user", JSON.stringify(response.email));
+        localStorage.setItem("@DrinkEat:token", JSON.stringify(response.id));
       } 
 
     function signOut(){
