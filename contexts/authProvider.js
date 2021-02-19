@@ -27,11 +27,11 @@ function Provider({ children }) {
     async function signIn(){
         //const response = await auth.signIn();       
        
-        const user = {
+        const userTeste = {
           email: 'pedro@gmail.com',
           password: '321',
         }
-        axios.post(`https://it-gestor.vercel.app/api/user/authDrinkeat`, { user }).then( response => {
+        axios.post(`https://it-gestor.vercel.app/api/user/authDrinkeat`, { userTeste }).then( response => {
           const { _id, email } = response;
         setUser(response.email);        
         localStorage.setItem("@DrinkEat:user", JSON.stringify(response.email));
