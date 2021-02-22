@@ -16,7 +16,7 @@ function Provider({ children }) {
         const storagedToken = localStorage.getItem("@DrinkEat:token");
 
         if(storagedUser && storagedToken){
-          ApiAxios.defaults.headers['Authorization'] = `Bearer ${storagedToken}`;
+          //ApiAxios.defaults.headers['Authorization'] = `Bearer ${storagedToken}`;
           setUser(JSON.parse(storagedUser));
           setLoading(false);
         }
