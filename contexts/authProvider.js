@@ -32,10 +32,10 @@ function Provider({ children }) {
           password: '321',
         }
         axios.post(`https://it-gestor.vercel.app/api/user/authDrinkeat`, { userTeste }).then( response => {
-          const { _id, email } = response;
-        setUser(response.email);        
-        localStorage.setItem("@DrinkEat:user", JSON.stringify(response.email));
-        localStorage.setItem("@DrinkEat:token", JSON.stringify(response.id));
+          const { message } = response;
+        //setUser(response.email);        
+        //localStorage.setItem("@DrinkEat:user", JSON.stringify(response.email));
+        localStorage.setItem("@DrinkEat:token", JSON.stringify(response.message));
 
         })
         /*
