@@ -33,6 +33,7 @@ function Provider({ children }) {
         }
         axios.post(`https://it-gestor.vercel.app/api/user/authDrinkeat`, { userTeste }).then( response => {
           const { message } = response;
+          console.log(response);
         //setUser(response.email);        
         //localStorage.setItem("@DrinkEat:user", JSON.stringify(response.email));
         localStorage.setItem("@DrinkEat:token", JSON.stringify(response.message));
