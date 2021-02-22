@@ -9,7 +9,7 @@ import axios from 'axios';
 function Provider({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(null);
-
+/*
     useEffect(() => {
       function loadStorageData() {
         const storagedUser = localStorage.getItem("@DrinkEat:user");
@@ -23,7 +23,7 @@ function Provider({ children }) {
       }
       loadStorageData();
     }, []);
-
+*/
     async function signIn(){
         //const response = await auth.signIn();       
        
