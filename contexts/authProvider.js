@@ -24,22 +24,38 @@ function Provider({ children }) {
       loadStorageData();
     }, []);
 */
-    async function signIn(){
+    async function signIn(values){
+
         //const response = await auth.signIn();       
-       
-        const userTeste = {
+       const userData = values;
+       /* const userTeste = {
           email: 'pedro@gmail.com',
           password: '321',
         }
-        axios.post(`https://it-gestor.vercel.app/api/user/authDrinkeat`, { userTeste }).then( response => {
-          const { message } = response.data;
+        */
+        axios.post(`https://it-gestor.vercel.app/api/user/authDrinkeat`, { userData }).then( response => {
+          const { message, email, error } = response.data;          
           console.log(message);
-          console.log(response.data.user);
+          console.log(email);          
         //setUser(response.email);        
         //localStorage.setItem("@DrinkEat:user", JSON.stringify(response.email));
         localStorage.setItem("@DrinkEat:token", JSON.stringify(response.message));
 
-        })
+        }).catch(function (error) {
+          if (error.response) {
+            // Request made and server responded
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+          }
+      
+        });
         /*
         const { _id, email } = response;
         setUser(response.user);

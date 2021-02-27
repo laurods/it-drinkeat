@@ -24,7 +24,7 @@ function Login () {
         onSubmit={(values) => {
           // same shape as initial values
           //console.log(values);
-          signIn();
+          signIn(values);
           
         }}
       >
@@ -61,7 +61,7 @@ function Login () {
                 type="submit"
                 variant="contained"
                 color="primary"
-                disabled={isValidating || isSubmitting}
+                
               >
                 Entrar
               </Button>
